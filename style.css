@@ -74,23 +74,33 @@ nav a:hover {
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  column-count: 3;
+  column-gap: 20px;
+}
+
+@media (max-width: 1000px) {
+  .grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .grid { column-count: 1; }
 }
 
 .grid img,
 .grid video {
   width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
   border-radius: 8px;
+  break-inside: avoid;
   transition: transform 0.4s ease;
 }
 
 .grid img:hover,
 .grid video:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
-
 footer {
   text-align: center;
   padding: 40px;
